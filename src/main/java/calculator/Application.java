@@ -1,7 +1,40 @@
 package calculator;
 
+import java.util.Scanner;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Scanner scanner = new Scanner(System.in);
+        String arguments = getInput(scanner);
+        int result = calculateSum(arguments);
+        printResult(result);
+    }
+
+    private static String getInput(Scanner scanner) {
+        return scanner.nextLine();
+    }
+
+    private static int calculateSum(String input) {
+        String[] stringArray = splitInput(input);
+        return getSum(stringArray);
+    }
+
+    private static int getSum(String[] stringArray) {
+        int sum = 0;
+        for (String numStr : stringArray) {
+            sum += Integer.parseInt(numStr);
+        }
+        return sum;
+    }
+
+    private static String[] splitInput(String input) {
+        if (input.contains(",")) {
+            return input.split(",");
+        }
+        return input.split(":");
+    }
+
+    private static void printResult(int result) {
+        System.out.printf("결과 : %d", result);
     }
 }
