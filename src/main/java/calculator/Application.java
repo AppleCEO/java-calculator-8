@@ -16,11 +16,16 @@ public class Application {
 
     private static int calculateSum(String input) {
         int sum = 0;
-        String[] stringArray = input.split(",");
+        String[] stringArray = splitInput(input);
         for (String numStr : stringArray) {
             sum += Integer.parseInt(numStr);
         }
         return sum;
+    }
+
+    private static String[] splitInput(String input) {
+        String[] stringArray = input.split(",");
+        return stringArray;
     }
 
     private static void printResult(int result) {
