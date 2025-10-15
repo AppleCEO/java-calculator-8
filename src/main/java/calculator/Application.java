@@ -24,8 +24,10 @@ public class Application {
     }
 
     private static String[] splitInput(String input) {
-        String[] stringArray = input.split(",");
-        return stringArray;
+        if (input.contains(",")) {
+            return input.split(",");
+        }
+        return input.split(":");
     }
 
     private static void printResult(int result) {
