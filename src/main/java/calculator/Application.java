@@ -15,8 +15,12 @@ public class Application {
     }
 
     private static int calculateSum(String input) {
-        int sum = 0;
         String[] stringArray = splitInput(input);
+        return getSum(stringArray);
+    }
+
+    private static int getSum(String[] stringArray) {
+        int sum = 0;
         for (String numStr : stringArray) {
             sum += Integer.parseInt(numStr);
         }
