@@ -68,7 +68,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 글자_입력() {
+    void 예외_테스트_글자_입력() {
         assertSimpleTest(() -> {
             IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
                 runException("a,2:3");
