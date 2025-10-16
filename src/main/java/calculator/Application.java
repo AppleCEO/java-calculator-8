@@ -29,7 +29,10 @@ public class Application {
 
     private static String[] splitInput(String input) {
         if (input.startsWith("//") && input.contains("\\n")) {
-            return new String[] {"1"};
+            int newlineIndex = input.indexOf("\\n");
+            String customDelimiter = input.substring(2, newlineIndex);
+            String inputWithoutCustomDelimiter = input.substring(newlineIndex + 2);
+            return inputWithoutCustomDelimiter.split(customDelimiter);
         }
         return SplitByDefaultDeligiters(input);
     }
