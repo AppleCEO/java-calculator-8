@@ -22,12 +22,16 @@ public class Application {
     private static int getSum(String[] stringArray) {
         int sum = 0;
         for (String numStr : stringArray) {
-            if (Integer.parseInt(numStr) < 0) {
-                throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
-            }
-            sum += Integer.parseInt(numStr);
+            sum += parsePositiveNumber(numStr);
         }
         return sum;
+    }
+
+    private static int parsePositiveNumber(String string) {
+        if (Integer.parseInt(string) < 0) {
+            throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+        }
+        return Integer.parseInt(string);
     }
 
     private static String[] splitInput(String input) {
