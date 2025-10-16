@@ -39,7 +39,7 @@ public class Application {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("구분자는 하나만 사용되어야 합니다.");
+            throw new IllegalArgumentException("숫자와 숫자 사이의 구분자로만 작성해야 합니다.");
         }
     }
 
