@@ -28,6 +28,13 @@ public class Application {
     }
 
     private static int parsePositiveNumber(String string) {
+        int number;
+        try {
+            number = Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("구분자는 하나만 사용되어야 합니다.");
+        }
+
         if (Integer.parseInt(string) < 0) {
             throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
         }
