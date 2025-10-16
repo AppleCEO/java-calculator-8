@@ -50,6 +50,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 커스텀_구분자의_글자_3자() {
+        assertSimpleTest(() -> {
+            run("//;ab\\n1;ab2;ab3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
     void 예외_테스트() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("-1,2,3"))
