@@ -63,7 +63,7 @@ class ApplicationTest extends NsTest {
             IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
                 runException("1,2:3");
             });
-            assertThat(e.getMessage()).isEqualTo("구분자는 하나만 사용되어야 합니다.");
+            assertThat(e.getMessage()).isEqualTo("숫자와 숫자 사이의 구분자로만 작성해야 합니다.");
         });
     }
 
