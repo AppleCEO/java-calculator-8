@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ApplicationTest extends NsTest {
     @Test
@@ -54,6 +55,16 @@ class ApplicationTest extends NsTest {
             assertThatThrownBy(() -> runException("-1,2,3"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 예외_테스트_뒤섞인_기본_구분자() {
+        assertSimpleTest(() -> {
+            IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+                runException("1,2:3");
+            });
+            assertThat(e.getMessage()).isEqualTo("구분자는 하나만 사용되어야 합니다.");
+        });
     }
 
     @Override
