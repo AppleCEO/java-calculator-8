@@ -31,7 +31,10 @@ public class Application {
         if (input.startsWith("//") && input.contains("\\n")) {
             return new String[] {"1"};
         }
+        return SplitByDefaultDeligiters(input);
+    }
 
+    private static String[] SplitByDefaultDeligiters(String input) {
         if (input.contains(",")) {
             return input.split(",");
         }
