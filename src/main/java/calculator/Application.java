@@ -22,9 +22,25 @@ public class Application {
     private static int getSum(String[] stringArray) {
         int sum = 0;
         for (String numStr : stringArray) {
-            sum += Integer.parseInt(numStr);
+            sum += parsePositiveNumber(numStr);
         }
         return sum;
+    }
+
+    private static int parsePositiveNumber(String string) {
+        int number = getNumber(string);
+        if (number < 0) {
+            throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+        }
+        return number;
+    }
+
+    private static int getNumber(String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자와 숫자 사이의 구분자로만 작성해야 합니다.");
+        }
     }
 
     private static String[] splitInput(String input) {
