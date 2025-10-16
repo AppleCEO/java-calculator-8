@@ -67,6 +67,16 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void 글자_입력() {
+        assertSimpleTest(() -> {
+            IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+                runException("a,2:3");
+            });
+            assertThat(e.getMessage()).isEqualTo("숫자와 숫자 사이의 구분자로만 작성해야 합니다.");
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
