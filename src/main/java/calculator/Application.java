@@ -22,6 +22,9 @@ public class Application {
     private static int getSum(String[] stringArray) {
         int sum = 0;
         for (String numStr : stringArray) {
+            if (Integer.parseInt(numStr) < 0) {
+                throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+            }
             sum += Integer.parseInt(numStr);
         }
         return sum;
