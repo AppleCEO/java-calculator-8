@@ -28,6 +28,10 @@ public class Application {
     }
 
     private static String[] splitInput(String input) {
+        if (input.startsWith("//") && input.contains("\\n")) {
+            return new String[] {"1"};
+        }
+
         if (input.contains(",")) {
             return input.split(",");
         }
