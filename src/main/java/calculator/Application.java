@@ -10,9 +10,12 @@ public class Application {
     }
 
     private static String getInput(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input = getInput(scanner);
-        return input;
+        if (args.length == 0) {
+            Scanner scanner = new Scanner(System.in);
+            String input = getInput(scanner);
+            return input;
+        }
+        return args[0];
     }
 
     private static String getInput(Scanner scanner) {
