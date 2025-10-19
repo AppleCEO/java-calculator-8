@@ -85,6 +85,22 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void 아규먼트_사용() {
+        assertSimpleTest(() -> {
+            Application.main(new String[] { "1:2:3" });
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
+    void 사용자에게_입력_안내_출력() {
+        assertSimpleTest(() -> {
+            run("//;ab\\n1;ab2;ab3");
+            assertThat(output()).contains("덧셈할 문자열을 입력해 주세요.");
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

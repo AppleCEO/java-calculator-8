@@ -4,13 +4,21 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String arguments = getInput(scanner);
-        int result = calculateSum(arguments);
+        printInputRequest();
+        String input = getInput(args);
+        int result = calculateSum(input);
         printResult(result);
     }
 
-    private static String getInput(Scanner scanner) {
+    private static String getInput(String[] args) {
+        if (args.length == 0) {
+            return getStringFromScanner();
+        }
+        return args[0];
+    }
+
+    private static String getStringFromScanner() {
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
@@ -62,6 +70,10 @@ public class Application {
             return input.split(",");
         }
         return input.split(":");
+    }
+
+    private static void printInputRequest() {
+        System.out.println("덧셈할 문자열을 입력해 주세요.");
     }
 
     private static void printResult(int result) {
