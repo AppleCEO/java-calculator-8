@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("덧셈할 문자열을 입력해 주세요.");
+        printInputRequest();
         String input = getInput(args);
         int result = calculateSum(input);
         printResult(result);
@@ -70,6 +70,10 @@ public class Application {
             return input.split(",");
         }
         return input.split(":");
+    }
+
+    private static void printInputRequest() {
+        System.out.println("덧셈할 문자열을 입력해 주세요.");
     }
 
     private static void printResult(int result) {
