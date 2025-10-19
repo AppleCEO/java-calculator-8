@@ -11,14 +11,13 @@ public class Application {
 
     private static String getInput(String[] args) {
         if (args.length == 0) {
-            Scanner scanner = new Scanner(System.in);
-            String input = getInput(scanner);
-            return input;
+            return getStringFromScanner();
         }
         return args[0];
     }
 
-    private static String getInput(Scanner scanner) {
+    private static String getStringFromScanner() {
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
