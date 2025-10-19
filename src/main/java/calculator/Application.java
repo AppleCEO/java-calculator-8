@@ -4,10 +4,15 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String arguments = getInput(scanner);
-        int result = calculateSum(arguments);
+        String input = getInput(args);
+        int result = calculateSum(input);
         printResult(result);
+    }
+
+    private static String getInput(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = getInput(scanner);
+        return input;
     }
 
     private static String getInput(Scanner scanner) {
